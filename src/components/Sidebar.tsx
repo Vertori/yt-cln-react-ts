@@ -1,8 +1,11 @@
 import { categories } from "../utils/constants";
 
-const selectedCategory = "New";
+type Props = {
+    selectedCategory: string;
+    setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
+}
 
-const Sidebar = (): JSX.Element => {
+const Sidebar = ({ selectedCategory, setSelectedCategory }: Props): JSX.Element => {
   return (
     <div className="flex flex-row md:flex-col overflow-y-auto h-auto md:h-[95%] gap-4 md:gap-6 scrollbar-hide mx-4 md:mx-0 md:py-6">
       {categories.map((category) => (
@@ -10,6 +13,7 @@ const Sidebar = (): JSX.Element => {
           className={`${
             category.name === selectedCategory && "bg-[#FC1503]"
           } flex justify-start items-center text-white rounded-full px-3 py-3 hover:bg-[#FC1503] group md:mx-4`}
+          onClick={() => setSelectedCategory(category.name)}
           key={category.name}
         >
           <span
