@@ -12,7 +12,8 @@ export type VideoType = {
   kind: string;
   id: {
     kind: string;
-    videoId: string;
+    videoId?: string;
+    channelId?: string;
   };
   snippet: {
     channelId: string;
