@@ -1,13 +1,16 @@
 import { categories } from "../utils/constants";
 
 type Props = {
-    selectedCategory: string;
-    setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
-}
+  selectedCategory: string;
+  setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
+};
 
-const Sidebar = ({ selectedCategory, setSelectedCategory }: Props): JSX.Element => {
+const Sidebar = ({
+  selectedCategory,
+  setSelectedCategory,
+}: Props): JSX.Element => {
   return (
-    <div className="flex flex-row md:flex-col overflow-y-auto h-auto md:h-[95%] gap-4 md:gap-6 scrollbar-hide mx-4 md:mx-0 md:py-6">
+    <div className="flex flex-row md:flex-col overflow-y-auto h-auto md:h-[95%] gap-4 md:gap-6 scrollbar-hide mx-4 md:mx-0 py-2 md:py-6">
       {categories.map((category) => (
         <button
           className={`${

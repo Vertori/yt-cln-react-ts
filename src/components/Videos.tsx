@@ -7,7 +7,7 @@ type Props = {
 
 const Videos = ({ videos }: Props): JSX.Element => {
   return (
-    <div className="flex flex-row flex-wrap justify-start gap-8">
+    <div className="flex flex-row flex-wrap justify-center lg:justify-start gap-8">
       {videos.map((item, index) => (
         <div key={index}>
           {item.id.videoId && <VideoCard video={item} />}
