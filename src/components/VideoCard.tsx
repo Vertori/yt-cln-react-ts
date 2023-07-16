@@ -7,6 +7,7 @@ type Props = {
 };
 
 import {
+  demoThumbnailUrl,
   demoVideoUrl,
   demoVideoTitle,
   demoChannelUrl,
@@ -25,7 +26,7 @@ const VideoCard = ({
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
         <img
           className="w-full h-[180px] object-cover"
-          src={snippet?.thumbnails?.high?.url}
+          src={snippet?.thumbnails?.high?.url || demoThumbnailUrl}
           alt={snippet?.title}
         />
       </Link>
