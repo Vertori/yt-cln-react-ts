@@ -21,7 +21,7 @@ const VideoCard = ({
   },
 }: Props): JSX.Element => {
   return (
-    <div className="w-[320px] bg-[#1e1e1e]">
+    <div className="w-[320px] bg-[#1e1e1e] h-[326px]">
       {/* thumbnail */}
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
         <img
@@ -46,7 +46,7 @@ const VideoCard = ({
               : demoChannelUrl
           }
         >
-          <p className="flex gap-2 items-center font-bold text-gray-500 text-sm">
+          <p className="flex gap-2 items-center font-bold text-gray-500 text-sm mt-1">
             {snippet?.channelTitle || demoChannelTitle}
             <AiFillCheckCircle />
           </p>
