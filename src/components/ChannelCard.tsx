@@ -2,15 +2,26 @@ import { AiFillCheckCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { demoProfilePicture } from "../utils/constants";
 import { VideoType } from "../types";
+import { ChannelDetailType } from "../types";
 
 type Props = {
-  channelDetail: VideoType;
+  channelDetail: VideoType | ChannelDetailType;
+  marginTop?: string;
 };
 
-const ChannelCard = ({ channelDetail }: Props): JSX.Element => {
+const ChannelCard = ({ channelDetail, marginTop }: Props): JSX.Element => {
   return (
-    <div className="rounded-[20px] flex justify-center items-center w-[320px] h-[326px] m-auto">
-      <Link to={`/channel/${channelDetail?.id?.channelId}`}>
+    <div
+      className="rounded-[20px] flex justify-center items-center w-[320px] h-[326px] m-auto"
+      style={{ marginTop: marginTop }}
+    >
+      <Link
+        to={`/channel/${
+          typeof channelDetail.id === "object"
+            ? channelDetail.id.channelId
+            : channelDetail.id
+        }`}
+      >
         <div className="flex flex-col justify-center text-center text-[#fff]">
           <img
             className="rounded-full h-[180px] w-[180px] mb-8"
@@ -24,14 +35,15 @@ const ChannelCard = ({ channelDetail }: Props): JSX.Element => {
             {channelDetail?.snippet?.title}
             <AiFillCheckCircle className="text-gray-500" />
           </div>
-          {/* {channelDetail?.statistics?.subscriberCount && (
-            <span>
-              {parseInt(
-                channelDetail?.statistics?.subscriberCount
-              ).toLocaleString()}{" "}
-              Subscribers
-            </span>
-          )} */}
+          {"statistics" in channelDetail &&
+            channelDetail.statistics?.subscriberCount && (
+              <span>
+                {parseInt(
+                  channelDetail.statistics.subscriberCount
+                ).toLocaleString()}{" "}
+                Subscribers
+              </span>
+            )}
         </div>
       </Link>
     </div>
