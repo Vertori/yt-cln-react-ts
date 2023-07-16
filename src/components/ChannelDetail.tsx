@@ -5,7 +5,7 @@ import { fetchFromAPI } from "../utils/fetchFromAPI";
 import { ChannelDetailType } from "../types";
 import { VideoType } from "../types";
 
-const ChannelDetail = () => {
+const ChannelDetail = (): JSX.Element => {
   const { id } = useParams();
   const [channelDetail, setChannelDetail] = useState<ChannelDetailType>(
     {} as ChannelDetailType
